@@ -10,3 +10,5 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+/* ❗❗❗❗❗❗❗❗❗❗❗❗ loyihada bag bor to'g'irlash kerak  */
