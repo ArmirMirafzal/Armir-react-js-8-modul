@@ -1,0 +1,310 @@
+* {
+ margin: 0;
+ box-sizing: border-box;
+ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+ margin: 0;
+ padding: 0;
+}
+
+ul {
+ list-style-type: none;
+}
+
+a {
+ text-decoration: none;
+}
+
+/* navbar */
+
+.nav-container {
+ display: flex;
+ align-items: center;
+ padding: 15px;
+ background-color: #d9d9d96b;
+}
+
+.navbar {
+ display: flex;
+ align-items: center;
+ gap: 30px;
+}
+
+.navbar h1 {
+ font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+ margin-left: 20px;
+ margin-right: 30px;
+}
+
+.navbar a {
+ font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+ text-decoration: none;
+ color: black;
+}
+
+/* main */
+
+.main-container {
+ width: 900px;
+ display: flex;
+ align-items: flex-start;
+ justify-content: space-around;
+ margin: 50px 100px 0 300px;
+ column-gap: 30px;
+}
+
+.genres-ul .list-group-item {
+ border: 0.1px solid rgba(63, 63, 63, 0.226);
+ padding: 14px 140px 14px 30px;
+ font-size: 18px;
+ color: rgba(0, 0, 0, 0.59);
+}
+
+.movies{
+height: 400px;
+}
+
+.btn-primary {
+ color: #fff;
+ background-color: #007bff;
+ border-color: #007bff;
+ padding: 10px 30px 10px 30px;
+ margin-bottom: 20px;
+}
+
+.btn {
+ display: inline-block;
+ font-weight: 400;
+ text-align: center;
+ white-space: nowrap;
+ vertical-align: middle;
+ -webkit-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
+ border: 1px solid transparent;
+ padding: 0.375rem 0.75rem;
+ font-size: 1rem;
+ line-height: 1.5;
+ border-radius: 0.25rem;
+ -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+ -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+p {
+ margin-bottom: 1rem;
+ font-size: 1.1rem;
+}
+
+input {
+ margin: 0;
+ font-family: inherit;
+ font-size: inherit;
+ line-height: inherit;
+}
+
+.form-control {
+ display: block;
+ width: 100%;
+ height: calc(2.25rem + 2px);
+ padding: 0.375rem 0.75rem;
+ font-size: 1rem;
+ line-height: 1.5;
+ color: #495057;
+ background-color: #fff;
+ background-clip: padding-box;
+ border: 1px solid #ced4da;
+ border-radius: 0.25rem;
+ -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+ transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+ -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+/* table */
+
+.table {
+ max-width: 500px;
+ margin-bottom: 1rem;
+ background-color: transparent;
+}
+
+table {
+ display: table;
+ border-collapse: separate;
+ box-sizing: border-box;
+ text-indent: initial;
+ border-spacing: 2px;
+ border-color: gray;
+}
+
+table {
+ border-collapse: collapse;
+}
+
+th {
+ text-align: start;
+}
+
+thead {
+ display: table-header-group;
+ vertical-align: middle;
+ border-color: inherit;
+}
+
+tr {
+ display: table-row;
+ vertical-align: inherit;
+ border-color: inherit;
+}
+
+.moviesLink {
+ color: #007bf0;
+ cursor: pointer;
+}
+
+.table thead th {
+ vertical-align: bottom;
+ border-bottom: 2px solid #dee2e6;
+}
+
+.table th,
+.table .td {
+ max-width: 500px;
+ vertical-align: top;
+ border-top: 1px solid #dee2e6;
+ padding: 0.75rem 20px 0.75rem 20px;
+}
+
+.fa {
+ display: inline-block;
+ font: normal normal normal 14px;
+ font-size: inherit;
+ text-rendering: auto;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+}
+
+/* .fa-sort-asc:before {
+   content: "\F0DE";
+} */
+
+.genre-active {
+ background-color: #007bf0;
+ color: #fff;
+}
+
+tbody {
+ display: table-row-group;
+ vertical-align: middle;
+ border-color: inherit;
+}
+
+.td {
+ display: table-cell;
+ vertical-align: inherit;
+}
+
+tr {
+ display: table-row;
+ vertical-align: inherit;
+ border-color: inherit;
+}
+
+/* pagination */
+
+.pagination {
+ display: -ms-flexbox;
+ display: flex;
+ padding-left: 0;
+ list-style: none;
+ border-radius: 0.25rem;
+}
+
+.page-link {
+ display: grid;
+ place-items: center;
+ width: 35px;
+ height: 35px;
+ border: 1px solid #c7c7c7;
+ cursor: pointer;
+}
+
+.page-link.active {
+ /* z-index: 1; */
+ color: #fff;
+ background-color: #007bff;
+ border-color: #007bf0;
+}
+
+.page-link:first-child {
+ border-top-left-radius: 5px;
+ border-bottom-left-radius: 5px;
+}
+
+.page-link:last-child {
+ border-top-right-radius: 5px;
+ border-bottom-right-radius: 5px;
+}
+
+
+/* loader */
+
+.hidden {
+ display: none !important;
+}
+
+.overlay {
+ position: fixed;
+ top: 0;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ background: rgba(0, 0, 0, 0.5);
+ backdrop-filter: blur(3px);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.lds-ring {
+ display: inline-block;
+ position: relative;
+ width: 80px;
+ height: 80px;
+}
+.lds-ring div {
+ box-sizing: border-box;
+ display: block;
+ position: absolute;
+ width: 64px;
+ height: 64px;
+ margin: 8px;
+ border: 8px solid #fff;
+ border-radius: 50%;
+ animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+ border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+ animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+ animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+ animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+ 0% {
+   transform: rotate(0deg);
+ }
+ 100% {
+   transform: rotate(360deg);
+ }
+}
