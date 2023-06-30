@@ -46,12 +46,11 @@ export default class App extends Component {
 		getMovies();
 	}
 
-	lastIndex = this.state.currentPage * this.state.postsPerPage;
-	firstIndex = this.lastIndex - this.state.postsPerPage;
- currentPosts = this.state.movies;
-
-
 	render() {
+		const lastIndex = this.state.currentPage * this.state.postsPerPage;
+		const firstIndex = lastIndex - this.state.postsPerPage;
+		const currentPosts = this.state.movies.slice(firstIndex, lastIndex);
+
 		return (
 			<>
 				<BrowserRouter>
@@ -69,7 +68,7 @@ export default class App extends Component {
 						</nav>
 					</div>
 					<Routes>
-						<Route path="/" element={<Main movies={this.state.movies} />} />
+						<Route path="/" element={<Main movies={currentPosts} loading={this.state.loading}/>} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/movies" element={<Movies />} />
@@ -79,4 +78,3 @@ export default class App extends Component {
 		);
 	}
 }
-

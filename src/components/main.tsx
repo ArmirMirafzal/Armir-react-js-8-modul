@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { AppState } from './../App';
 
 
-interface MainProps extends Pick<AppState, "movies"> {}
+interface MainProps extends Pick<AppState, "movies"> {
+	loading: boolean;
+}
 
 export default class Main extends Component<MainProps, {}> {
-
-	
 
 	render() {
 		return (
