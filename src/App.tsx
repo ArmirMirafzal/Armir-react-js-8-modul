@@ -18,11 +18,17 @@ export interface AppState {
 		numberInStock: number;
 		dailyRentalRate: number;
 	}[];
+	currentPage: number;
+	postsPerPage: number;
+	loading: boolean;
 }
 
 export default class App extends Component {
 	state: AppState = {
 		movies: [],
+		currentPage: 1,
+		postsPerPage: 4,
+		loading: false,
 	};
 
 	componentDidMount(): void {
@@ -30,6 +36,7 @@ export default class App extends Component {
 			try {
 				const res = await axios(URL);
 				const data = await res.data;
+				console.log("data => ", data);
 				this.setState({ movies: data });
 			} catch (error) {
 				console.log(error);
@@ -39,8 +46,12 @@ export default class App extends Component {
 		getMovies();
 	}
 
+	lastIndex = this.state.currentPage * this.state.postsPerPage;
+	firstIndex = this.lastIndex - this.state.postsPerPage;
+ currentPosts = this.state.movies;
+
+
 	render() {
-		const { movies } = this.state;
 		return (
 			<>
 				<BrowserRouter>
@@ -58,7 +69,7 @@ export default class App extends Component {
 						</nav>
 					</div>
 					<Routes>
-						<Route path="/" element={<Main movies={movies} />} />
+						<Route path="/" element={<Main movies={this.state.movies} />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/movies" element={<Movies />} />
