@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { AppState } from './../App';
+import { AppState, TMovies } from './../App';
 
 
-interface MainProps extends Pick<AppState, "movies"> {
+interface MainProps  {
 	loading: boolean;
+	movies: TMovies;
+	current: TMovies;
 }
 
 export default class Main extends Component<MainProps, {}> {
@@ -51,7 +53,7 @@ export default class Main extends Component<MainProps, {}> {
 									</tr>
 								</thead>
 								<tbody>
-									{this.props.movies.map((movie) => {
+									{this.props.current.map((movie) => {
 										return (
 											<tr key={movie._id}>
 												<td className="td">
@@ -71,7 +73,7 @@ export default class Main extends Component<MainProps, {}> {
 								</tbody>
 							</table>
 							<div className="pagination">
-								{/* {this.totalPages(() => (
+								{/* {this.(() => (
 									<a key={i} className="page-link active">
 										{n}
 									</a>

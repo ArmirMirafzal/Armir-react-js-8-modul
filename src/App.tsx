@@ -10,14 +10,16 @@ import Movies from "./components/movies";
 
 const URL = "https://pdp-movies-78.onrender.com/api/movies";
 
+export type TMovies = {
+	_id: string;
+	genre: { name: string; id: string };
+	title: string;
+	numberInStock: number;
+	dailyRentalRate: number;
+}[];
+
 export interface AppState {
-	movies: {
-		_id: string;
-		genre: { name: string; id: string };
-		title: string;
-		numberInStock: number;
-		dailyRentalRate: number;
-	}[];
+	movies: TMovies;
 	currentPage: number;
 	postsPerPage: number;
 	loading: boolean;
@@ -46,6 +48,10 @@ export default class App extends Component {
 		getMovies();
 	}
 
+
+	
+
+
 	render() {
 		const lastIndex = this.state.currentPage * this.state.postsPerPage;
 		const firstIndex = lastIndex - this.state.postsPerPage;
@@ -68,7 +74,7 @@ export default class App extends Component {
 						</nav>
 					</div>
 					<Routes>
-						<Route path="/" element={<Main movies={currentPosts} loading={this.state.loading}/>} />
+						<Route path="/" element={<Main current={currentPosts} movies={this.state.movies} loading={this.state.loading}/>} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/movies" element={<Movies />} />

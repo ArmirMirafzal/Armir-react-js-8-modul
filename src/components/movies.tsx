@@ -43,7 +43,9 @@ export default class Movies extends Component {
 								/>
 							</div>
 							<button disabled={true} className="btn btn-primary">
-								<Link className="save" to="/">Save</Link>
+								<Link className="save" to="/">
+									Save
+								</Link>
 							</button>
 						</form>
 					</div>
