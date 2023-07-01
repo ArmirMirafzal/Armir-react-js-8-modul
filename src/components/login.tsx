@@ -5,7 +5,16 @@ import axios from "axios";
 
 export let userToken: any;
 
-export default class Login extends Component {
+interface LoginState {
+	userName: string;
+}
+
+export default class Login extends Component<{}, LoginState> {
+	state: LoginState = {
+		userName: "",
+	}
+
+
 	inputEmail: any = React.createRef();
 	inputPassword: any = React.createRef();
 
@@ -37,7 +46,7 @@ export default class Login extends Component {
 
 				const {data: userData} = responseMe;
 				const userName = userData.name;
-				
+				this.setState({ userName })
 			} catch (err) {
 				console.log("error ? ? ?   => ", err);
 			}
@@ -45,6 +54,7 @@ export default class Login extends Component {
 
 		dataLogin();
 	};
+
 
 	render() {
 		return (

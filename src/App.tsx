@@ -23,6 +23,7 @@ export interface AppState {
 	currentPage: number;
 	postsPerPage: number;
 	loading: boolean;
+	loginUserName: string;
 }
 
 export default class App extends Component {
@@ -31,6 +32,7 @@ export default class App extends Component {
 		currentPage: 1,
 		postsPerPage: 4,
 		loading: false,
+		loginUserName: "",
 	};
 
 	componentDidMount(): void {
@@ -38,7 +40,7 @@ export default class App extends Component {
 			try {
 				const res = await axios(URL);
 				const data = await res.data;
-				console.log("data => ", data);
+				console.log("movies data => ", data);
 				this.setState({ movies: data });
 			} catch (error) {
 				console.log(error);
@@ -48,14 +50,16 @@ export default class App extends Component {
 		getMovies();
 	}
 
-
-	
-
-
 	render() {
 		const lastIndex = this.state.currentPage * this.state.postsPerPage;
 		const firstIndex = lastIndex - this.state.postsPerPage;
 		const currentPosts = this.state.movies.slice(firstIndex, lastIndex);
+		const pageNumbers = []
+
+
+		for(let i=0; i<=Math.ceil(this.state.postsPerPage / this.state.movies.length); i++){
+			pageNumbers.push(i)
+		}
 
 		return (
 			<>
@@ -74,7 +78,7 @@ export default class App extends Component {
 						</nav>
 					</div>
 					<Routes>
-						<Route path="/" element={<Main current={currentPosts} movies={this.state.movies} loading={this.state.loading}/>} />
+						<Route path="/" element={<Main pageNum={pageNumbers} current={currentPosts} movies={this.state.movies} loading={this.state.loading}/>} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/movies" element={<Movies />} />

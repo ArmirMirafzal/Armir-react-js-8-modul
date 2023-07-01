@@ -3,13 +3,18 @@ import { Link } from "react-router-dom";
 import { AppState, TMovies } from './../App';
 
 
+
 interface MainProps  {
 	loading: boolean;
 	movies: TMovies;
 	current: TMovies;
+	pageNum: number[];
 }
 
+
+
 export default class Main extends Component<MainProps, {}> {
+
 
 	render() {
 		return (
@@ -73,11 +78,11 @@ export default class Main extends Component<MainProps, {}> {
 								</tbody>
 							</table>
 							<div className="pagination">
-								{/* {this.(() => (
-									<a key={i} className="page-link active">
-										{n}
+								{this.props.pageNum.map((num) => (
+									<a key={num} className="page-link active">
+										{num}
 									</a>
-								))} */}
+								))}
 							</div>
 						</div>
 					</div>

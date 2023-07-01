@@ -7,6 +7,7 @@ export default class Register extends Component {
 	inputPassword: any = React.createRef();
 	inputName: any = React.createRef();
 
+
 	handleRegister = (e: any) => {
 		e.preventDefault();
 		let REGISTER_API = "https://pdp-movies-78.onrender.com/api/users";
@@ -25,6 +26,8 @@ export default class Register extends Component {
 
 		dataRegister();
 	};
+
+
 
 	render() {
 		return (
