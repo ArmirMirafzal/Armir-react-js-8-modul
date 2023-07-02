@@ -12,9 +12,7 @@ interface MainProps  {
 }
 
 
-
 export default class Main extends Component<MainProps, {}> {
-
 
 	render() {
 		return (
