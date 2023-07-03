@@ -20,18 +20,12 @@ export type TMovies = {
 
 export interface AppState {
 	movies: TMovies;
-	currentPage: number;
-	postsPerPage: number;
-	loading: boolean;
 	loginUserName: string;
 }
 
 export default class App extends Component {
 	state: AppState = {
 		movies: [],
-		currentPage: 1,
-		postsPerPage: 4,
-		loading: false,
 		loginUserName: "",
 	};
 
@@ -51,16 +45,6 @@ export default class App extends Component {
 	}
 
 	render() {
-		const lastIndex = this.state.currentPage * this.state.postsPerPage;
-		const firstIndex = lastIndex - this.state.postsPerPage;
-		const currentPosts = this.state.movies.slice(firstIndex, lastIndex);
-		const pageNumbers = []
-
-
-		for(let i=0; i<=Math.ceil(this.state.postsPerPage / this.state.movies.length); i++){
-			pageNumbers.push(i)
-		}
-
 		return (
 			<>
 				<BrowserRouter>
@@ -78,7 +62,7 @@ export default class App extends Component {
 						</nav>
 					</div>
 					<Routes>
-						<Route path="/" element={<Main pageNum={pageNumbers} current={currentPosts} movies={this.state.movies} loading={this.state.loading}/>} />
+						<Route path="/" element={<Main movies={this.state.movies} />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/movies" element={<Movies />} />
