@@ -1,73 +1,37 @@
-import React, { Component } from "react";
-import axios from "axios";
+import { Component } from "react";
+import { Home, Login, Register } from "pages";
+import { Navbar } from "components";
 
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
-import Main from "./components/main";
-import Login from "./components/login";
-import Register from "./components/register";
-import Movies from "./components/movies";
-
-const URL = "https://pdp-movies-78.onrender.com/api/movies";
-
-export type TMovies = {
-	_id: string;
-	genre: { name: string; id: string };
-	title: string;
-	numberInStock: number;
-	dailyRentalRate: number;
-}[];
-
-export interface AppState {
-	movies: TMovies;
-	loginUserName: string;
+interface AppState {
+	pathname: string;
 }
 
-export default class App extends Component {
+export default class App extends Component<{}, AppState> {
 	state: AppState = {
-		movies: [],
-		loginUserName: "",
+		pathname: window.location.pathname,
 	};
 
-	componentDidMount(): void {
-		const getMovies = async () => {
-			try {
-				const res = await axios(URL);
-				const data = await res.data;
-				console.log("movies data => ", data);
-				this.setState({ movies: data });
-			} catch (error) {
-				console.log(error);
-			}
-		};
+	getPage = () => {
+		switch (this.state.pathname) {
+			case "/login":
+				return <Login />;
+			case "/register":
+				return <Register />;
+			default:
+				return <Home />;
+		}
+	};
 
-		getMovies();
-	}
+	handleNavigate = (pathname: string) => {
+		this.setState({ pathname });
+	};
 
 	render() {
+		const { pathname } = this.state;
 		return (
 			<>
-				<BrowserRouter>
-					<div className="nav-container">
-						<nav className="navbar">
-							<h1>
-								<Link to="/">Main</Link>
-							</h1>
-							<Link to="/login" id="changeLogin">
-								Login
-							</Link>
-							<Link to="/register" id="changeRegister">
-								Register
-							</Link>
-						</nav>
-					</div>
-					<Routes>
-						<Route path="/" element={<Main movies={this.state.movies} />} />
-						<Route path="/login" element={<Login />} />
-						<Route path="/register" element={<Register />} />
-						<Route path="/movies" element={<Movies />} />
-					</Routes>
-				</BrowserRouter>
+				<Navbar currentPathname={pathname} onNavigate={this.handleNavigate} />
+				<div className="container">{this.getPage()}</div>
 			</>
 		);
 	}
