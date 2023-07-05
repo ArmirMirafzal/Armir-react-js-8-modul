@@ -56,8 +56,8 @@ export default class Movies extends Component<MoviesProps, MoviesState> {
 			  })
 			: moviesList;
 
-		const indexOfLastMovie = currentPage * moviesPerPage; // 4
-		const indexOfFirstMovie = indexOfLastMovie - moviesPerPage; // 4 - 4 = 0
+		const indexOfLastMovie = currentPage * moviesPerPage;
+		const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
 		const currentMovies = [...searchList].slice(indexOfFirstMovie, indexOfLastMovie);
 
 		const pageNumbers = [];
