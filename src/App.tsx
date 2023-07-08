@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { Home, Login, Register } from "pages";
 import { Navbar } from "components";
+import AddMovie from "./pages/add-movie";
+import EditMovie from "./pages/edit-movie";
 
 interface AppState {
 	pathname: string;
@@ -17,8 +19,12 @@ export default class App extends Component<{}, AppState> {
 				return <Login />;
 			case "/register":
 				return <Register />;
+			case "/add":
+				return <AddMovie />;
+			case "/edit":
+				return <EditMovie />;
 			default:
-				return <Home />;
+				return <Home onNavigate={this.handleNavigate}/>;
 		}
 	};
 

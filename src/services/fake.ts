@@ -33,6 +33,17 @@ const movies = [
     username: "arslonbekXX",
   },
   {
+    _id: "64a15418339f4396f30ff12f",
+    title: "Armir",
+    genre: {
+      name: "Comedy",
+      _id: "64a15418339f4396f30ff999",
+    },
+    numberInStock: 15,
+    dailyRentalRate: 2,
+    username: "ArmirXX",
+  },
+  {
     _id: "64a15418339f4396f30ff9a4",
     title: "Die Hard",
     genre: {
@@ -152,11 +163,11 @@ const genres = [
   },
 ];
 
-export const getMovies = () => {
+export const getMovies =  async () => {
   return [...movies];
 };
+
 export const getGenres = async () => {
   await new Promise((res) => setTimeout(() => res(""), 800));
-
   return [...genres];
 };

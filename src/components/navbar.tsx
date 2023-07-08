@@ -9,6 +9,7 @@ const paths = [
 ];
 
 const Navbar = ({ onNavigate, currentPathname }: NavbarProps) => {
+	
 	const handleNavigate = (pathname: string) => {
 		window.history.pushState({}, "", pathname);
 		onNavigate(pathname);
